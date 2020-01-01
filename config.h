@@ -13,7 +13,7 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int gappx     = 10;	/* gp pixel between windows */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = {"FontAwesome:size=14", "DejaVu Sans Mono:size=14"};
+static const char *fonts[]          = {"file-icons:size=14:style=icons", "FontAwesome:size=14:style=Regular", "DejaVu Sans Mono:size=14"};
 //static const char *fonts[]          = { "monospace:size=11" };
 //static const char dmenufont[]       = "monospace:size=10";
 static const char dmenufont[]       = "DejaVu Sans Mono:pixelsize=16:antialias=true:autohint=true";
@@ -29,7 +29,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "", "\ue926", "\uf120", "\uf120", "\uf120", "\uf120", "\uf120", "\uf198", "\uf001" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -49,8 +49,8 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
+	{ "[T]",      tile },    /* first entry is default */
+	{ "[F]",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 };
 
