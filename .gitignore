@@ -1,5 +1,5 @@
-*.h.*
 *~
 *.orig
 *.rej
 *.o
+dwm
