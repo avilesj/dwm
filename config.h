@@ -3,10 +3,10 @@
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
-static const unsigned int gappih    = 10;       /* horiz inner gap between windows */
-static const unsigned int gappiv    = 10;       /* vert inner gap between windows */
-static const unsigned int gappoh    = 10;       /* horiz outer gap between windows and screen edge */
-static const unsigned int gappov    = 10;       /* vert outer gap between windows and screen edge */
+static const unsigned int gappih    = 15;       /* horiz inner gap between windows */
+static const unsigned int gappiv    = 15;       /* vert inner gap between windows */
+static const unsigned int gappoh    = 15;       /* horiz outer gap between windows and screen edge */
+static const unsigned int gappov    = 15;       /* vert outer gap between windows and screen edge */
 static const int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -14,9 +14,9 @@ static const char *fonts[]          = { "file-icons:size=14:style=icons", "FontA
 static const char dmenufont[]       = "DejaVu Sans Mono:pixelsize=16:antialias=true:autohint=true";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#222222";
-static const char col_gray3[]       = "#ff9100";
+static const char col_gray3[]       = "#00c3ff";
 static const char col_gray4[]       = "#222222";
-static const char col_cyan[]        = "#ff9100";
+static const char col_cyan[]        = "#00c3ff";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -65,8 +65,8 @@ static const char *downvol[] = { "/usr/bin/amixer", "-D",   "pulse", "set", "Mas
 static const char *mutevol[] = { "/usr/bin/amixer", "-D",   "pulse", "set", "Master", "toggle",  NULL };
 
 /* brightness */
-static const char *upbright[]   = { "/bin/bash",  "$SCRIPTS/brightness.sh",   "--increase", NULL };
-static const char *downbright[]   = { "/bin/bash",  "$SCRIPTS/brightness.sh",   "--decrease", NULL };
+static const char *upbright[]   = { "/bin/bash",  "/home/javiles/.config/scripts/brightness.sh",   "--increase", NULL };
+static const char *downbright[]   = { "/bin/bash",  "/home/javiles/.config/scripts/brightness.sh",   "--decrease", NULL };
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
@@ -98,11 +98,11 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ 0,                       XF86XK_AudioLowerVolume, spawn, {.v = downvol } },
-	{ 0,                       XF86XK_AudioMute, spawn, {.v = mutevol } },
-	{ 0,                       XF86XK_AudioRaiseVolume, spawn, {.v = upvol   } },
-	{ 0,                       XF86XK_MonBrightnessUp, spawn, {.v = upbright   } },
-	{ 0,                       XF86XK_MonBrightnessDown, spawn, {.v = downbright   } },
+	{ 0,                       	XF86XK_AudioLowerVolume, spawn, {.v = downvol } },
+	{ 0,                      	XF86XK_AudioMute, spawn, {.v = mutevol } },
+	{ 0,                       	XF86XK_AudioRaiseVolume, spawn, {.v = upvol   } },
+	{ 0,                       	XF86XK_MonBrightnessUp, spawn, {.v = upbright   } },
+	{ 0,                       	XF86XK_MonBrightnessDown, spawn, {.v = downbright   } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
