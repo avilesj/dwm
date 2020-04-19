@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 #include <X11/XF86keysym.h>
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int gappih    = 15;       /* horiz inner gap between windows */
 static const unsigned int gappiv    = 15;       /* vert inner gap between windows */
@@ -24,7 +24,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "", "\ue926", "\uf120", "\uf120", "\uf120", "\uf120", "\uf120", "\uf198", "\u266b" };
+static const char *tags[] = { "", "\ue926", "\uf120", "\uf108", "\uf0c0", "\uf198", "\u266b" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -34,6 +34,9 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Firefox",  NULL,       NULL,       1,            0,           -1 },
         { "Emacs",    NULL,       NULL,       2,            0,           -1 },
+        { "Microsoft Teams",    NULL,       NULL,       1 << 4,            0,           -1 },
+        { "Slack",    NULL,       NULL,       1 << 5,            0,           -1 },
+        { "Spotify",    NULL,       NULL,       6 << 0,            True,           -1 },
 };
 
 /* layout(s) */
@@ -68,6 +71,8 @@ static const char *mutevol[] = { "/usr/bin/amixer", "-D",   "pulse", "set", "Mas
 static const char *upbright[]   = { "/bin/bash",  "/home/javiles/.config/scripts/brightness.sh",   "--increase", NULL };
 static const char *downbright[]   = { "/bin/bash",  "/home/javiles/.config/scripts/brightness.sh",   "--decrease", NULL };
 
+/* displays */
+static const char *changedisp[]   = { "/bin/bash",  "/home/javiles/.config/scripts/display.sh", NULL };
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
@@ -103,6 +108,7 @@ static Key keys[] = {
 	{ 0,                       	XF86XK_AudioRaiseVolume, spawn, {.v = upvol   } },
 	{ 0,                       	XF86XK_MonBrightnessUp, spawn, {.v = upbright   } },
 	{ 0,                       	XF86XK_MonBrightnessDown, spawn, {.v = downbright   } },
+        { 0,                       	XF86XK_Display, spawn, {.v = changedisp   } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
